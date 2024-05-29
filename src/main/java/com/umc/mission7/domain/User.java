@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Builder
@@ -29,4 +32,8 @@ public class User extends BaseEntity{
     @OneToOne
     @JoinColumn(name = "user_config_id")
     private UserConfig userConfig;
+
+    @OneToMany
+    @JoinColumn(name = "user_food_category_id")
+    private List<UserFoodCategory> userFoodCategories = new ArrayList<>();
 }
