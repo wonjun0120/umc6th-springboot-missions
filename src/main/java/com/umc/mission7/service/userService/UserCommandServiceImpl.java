@@ -36,7 +36,7 @@ public class UserCommandServiceImpl implements UserCommandService {
                             .orElseThrow(() -> new FoodCategoryHandler(ErrorStatus.FOOD_CATEGORY_NOT_FOUND));
                 }).collect(Collectors.toList());
 
-        List<UserFoodCategory> userFoodCategoryList = UserFoodCategoryConverter.toMemberPreferList(foodCategoryList);
+        List<UserFoodCategory> userFoodCategoryList = UserFoodCategoryConverter.toUserFoodCategory(foodCategoryList);
 
         userFoodCategoryList.forEach(userFoodCategory -> {userFoodCategory.setUser(newUser);});
 

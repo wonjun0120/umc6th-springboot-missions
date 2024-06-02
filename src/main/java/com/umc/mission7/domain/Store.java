@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,4 +21,7 @@ public class Store extends BaseEntity{
     @Column(nullable = false) LocalTime openTime;
     @Column(nullable = false) LocalTime closeTime;
     @Column(nullable = false) Long point;
+
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+    private List<Review> reviewList = new ArrayList<>();
 }

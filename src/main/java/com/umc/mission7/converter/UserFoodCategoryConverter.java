@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UserFoodCategoryConverter {
-    public static List<UserFoodCategory> toMemberPreferList(List<FoodCategory> foodCategoryList){
+    public static List<UserFoodCategory> toUserFoodCategory(List<FoodCategory> foodCategoryList){
 
         return foodCategoryList.stream()
                 .map(foodCategory ->
