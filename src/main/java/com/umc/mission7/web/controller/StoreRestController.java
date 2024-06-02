@@ -2,6 +2,7 @@ package com.umc.mission7.web.controller;
 
 import com.umc.mission7.apiPayload.ApiResponse;
 import com.umc.mission7.converter.StoreConverter;
+import com.umc.mission7.domain.Mission;
 import com.umc.mission7.domain.Review;
 import com.umc.mission7.domain.Store;
 import com.umc.mission7.service.storeService.StoreCommandService;
@@ -36,5 +37,13 @@ public class StoreRestController {
         Review review = storeCommandService.createReview(userId, storeId, request);
         return ApiResponse.onSuccess(StoreConverter.toCreateReviewResultDTO(review));
 
+    }
+
+    @PostMapping("/{storeId}/missions")
+    public ApiResponse<StoreResponseDTO.CreateMissionResultDTO> createMission(@RequestBody @Valid StoreRequestDTO.MissionDTO request,
+                                                                              @ExistStore @PathVariable(name = "storeId") Long storeId){
+
+        Mission mission = storeCommandService.createMission(storeId, request);
+        return ApiResponse.onSuccess(StoreConverter.toCreateMissionResultDTO(mission));
     }
 }

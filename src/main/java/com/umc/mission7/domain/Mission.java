@@ -17,4 +17,9 @@ public class Mission extends BaseEntity{
 
     @Column(nullable = false) Long point;
     @Column(nullable = false, length = 1000) String text;
+
+    public void setStore(Store store) {
+        this.store = store;
+        store.getMissionList().add(this);
+    }
 }
