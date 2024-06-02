@@ -12,3 +12,5 @@ INSERT INTO food_category (name) VALUES
 ('디저트'),
 ('아시안푸드');
 
+INSERT INTO user (email, name, nick_name, birth, address, is_agree_location, is_agree_marketing, point)
+VALUE ('testuser@test.com', 'testuser', 'tt', '2024-06-02', 'test si test dong test', TRUE, TRUE, 0);

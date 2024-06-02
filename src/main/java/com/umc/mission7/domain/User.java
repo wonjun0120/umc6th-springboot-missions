@@ -36,4 +36,7 @@ public class User extends BaseEntity{
     @OneToMany
     @JoinColumn(name = "user_food_category_id")
     private List<UserFoodCategory> userFoodCategories = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Review> reviewList = new ArrayList<>();
 }
