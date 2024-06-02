@@ -1,5 +1,6 @@
 package com.umc.mission7.converter;
 
+import com.umc.mission7.domain.Mission;
 import com.umc.mission7.domain.Review;
 import com.umc.mission7.domain.Store;
 import com.umc.mission7.web.dto.StoreRequestDTO;
@@ -37,6 +38,20 @@ public class StoreConverter {
     public static StoreResponseDTO.CreateStoreResultDTO toCreateStoreResultDTO(Store store) {
         return StoreResponseDTO.CreateStoreResultDTO.builder()
                 .storeId(store.getId())
+                .createdAt(LocalDateTime.now())
+                .build();
+    }
+
+    public static Mission toMission(StoreRequestDTO.MissionDTO request) {
+        return Mission.builder()
+                .point(request.getPoint())
+                .text(request.getText())
+                .build();
+    }
+
+    public static StoreResponseDTO.CreateMissionResultDTO toCreateMissionResultDTO(Mission mission) {
+        return StoreResponseDTO.CreateMissionResultDTO.builder()
+                .missionId(mission.getId())
                 .createdAt(LocalDateTime.now())
                 .build();
     }

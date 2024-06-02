@@ -26,4 +26,13 @@ public class StoreResponseDTO {
         Long storeId;
         LocalDateTime createdAt;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class CreateMissionResultDTO {
+        Long missionId;
+        LocalDateTime createdAt;
+    }
 }

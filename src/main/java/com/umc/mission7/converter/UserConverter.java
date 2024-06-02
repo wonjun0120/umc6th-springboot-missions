@@ -2,6 +2,7 @@ package com.umc.mission7.converter;
 
 import com.umc.mission7.domain.Gender;
 import com.umc.mission7.domain.User;
+import com.umc.mission7.domain.UserMission;
 import com.umc.mission7.web.dto.UserRequestDTO;
 import com.umc.mission7.web.dto.UserResponseDTO;
 
@@ -40,6 +41,20 @@ public class UserConverter {
                 .isAgreeLocation(request.getIsAgreeLocation())
                 .isAgreeMarketing(request.getIsAgreeMarketing())
                 .point(request.getPoint())
+                .build();
+    }
+
+    public static UserMission toUserMission(UserRequestDTO.addMissionDTO request) {
+        return UserMission.builder()
+                .startDate(request.getStartDate())
+                .dueDate(request.getDueDate())
+                .build();
+    }
+
+    public static UserResponseDTO.addMissionResultDTO addMissionDTO(UserMission mission) {
+        return UserResponseDTO.addMissionResultDTO.builder()
+                .missionId(mission.getId())
+                .createdAt(LocalDateTime.now())
                 .build();
     }
 }

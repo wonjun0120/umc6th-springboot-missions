@@ -21,6 +21,7 @@ public class UserMission extends BaseEntity{
     @JoinColumn(name = "mission_id")
     private Mission mission;
 
+    @Setter
     @Enumerated(EnumType.ORDINAL)
     @Column(columnDefinition = "VARCHAR(10)")
     private UserMissionStatus status;
@@ -29,4 +30,11 @@ public class UserMission extends BaseEntity{
     LocalDateTime startDate;
     @Column(nullable = false)
     LocalDateTime dueDate;
+
+    public void setUser(User user) {
+        if(this.user != null)
+            user.getMissionList().remove(this);
+        this.user = user;
+        user.getMissionList().add(this);
+    }
 }

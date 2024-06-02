@@ -37,4 +37,12 @@ public class StoreRequestDTO {
 
         @NotNull Long point;
     }
+
+    @Getter
+    public static class MissionDTO {
+        @NotNull
+        Long point;
+        @NotBlank
+        String text;
+    }
 }
