@@ -14,9 +14,11 @@ import com.umc.mission7.web.dto.UserRequestDTO;
 import com.umc.mission7.web.dto.UserResponseDTO;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Validated
 @RequiredArgsConstructor
 @RequestMapping("/users")
 public class UserRestController {
